@@ -1,17 +1,5 @@
-[
-    {
-        "usuario": "nombre",
-        "mensaje": "mensaje del usuario",
-        "fecha": "fecha"
-    },
-    {
-        "usuario": "nombre",
-        "mensaje": "mensaje del usuario",
-        "fecha": "fecha"
-    },
-    {
-        "usuario": "nombre",
-        "mensaje": "mensaje del usuario",
-        "fecha": "fecha"
-    }
-]
+{
+  "usuario": "asdf",
+  "mensaje": "asdf",
+  "fecha": "17:03:44"
+}

@@ -5,6 +5,7 @@ from flask import request,session,jsonify
 import os
 import pathlib
 import json
+from datetime import datetime
 
 # creates a Flask application, named app
 app = Flask(__name__,static_folder='templates/static')
@@ -28,7 +29,20 @@ def chat():
 @app.route("/apimsg",methods=["POST"])
 def api():
     mensaje=request.get_json()
-    print(session["usuario"],mensaje["mensaje"]);
+    datos={}
+    with open("mensaje.json","r") as file:
+        datos=json.load(file)
+        file.close()
+    now=datetime.now()
+    datos={
+        "usuario": session["usuario"],
+        "mensaje": mensaje["mensaje"],
+        "fecha": datetime.now().strftime("%H:%M:%S")
+    }
+    with open("mensaje.json","w") as file:
+        json.dump(datos,file,indent=2)
+        file.close()
+
     return session["usuario"] +": " +mensaje["mensaje"];
 
 # run the application
